@@ -31,12 +31,12 @@ if DEV_BOT:
     print("DEV BOT")
     TOKEN = cfg.CONFIG['token_dev']
 else:
-    TOKEN = cfg.CONFIG['token']
+    TOKEN = cfg.CONFIG[os.environ.get('TOKEN')]
 try:
     sid = int(sys.argv[1])
     if str(sid) in cfg.CONFIG["sapphires"]:
         cfg.SAPPHIRE_ID = sid
-        TOKEN = cfg.CONFIG["sapphires"][str(sid)]['token']
+        TOKEN = cfg.CONFIG["sapphires"][str(sid)][os.environ.get('TOKEN')]
         NUM_SHARDS = 1
     elif 'gold_id' in cfg.CONFIG and sid == 6666:
         GOLD_BOT = True
