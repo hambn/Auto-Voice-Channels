@@ -1169,4 +1169,4 @@ cleanup(client=client, tick_=1)
 for ln, l in loops.items():
     l.start(client)
 check_patreon.start()
-client.run(TOKEN)
+client.run(process.env.token)
