@@ -23,7 +23,7 @@ from discord.ext.tasks import loop
 logging.basicConfig(level=logging.INFO)
 ADMIN_CHANNEL = None
 ADMIN = None
-
+tokenbn = str(os.environ.get('TOKEN'))
 DEV_BOT = cfg.CONFIG['DEV'] if 'DEV' in cfg.CONFIG else False
 GOLD_BOT = False
 NUM_SHARDS = cfg.CONFIG['num_shards'] if 'num_shards' in cfg.CONFIG else 0
@@ -31,12 +31,12 @@ if DEV_BOT:
     print("DEV BOT")
     TOKEN = cfg.CONFIG['token_dev']
 else:
-    TOKEN = cfg.CONFIG[str(os.environ.get('TOKEN'))]
+    TOKEN = cfg.CONFIG[tokenbn]
 try:
     sid = int(sys.argv[1])
     if str(sid) in cfg.CONFIG["sapphires"]:
         cfg.SAPPHIRE_ID = sid
-        TOKEN = cfg.CONFIG["sapphires"][str(sid)][str(os.environ.get('TOKEN'))]
+        TOKEN = cfg.CONFIG["sapphires"][str(sid)][tokenbn]
         NUM_SHARDS = 1
     elif 'gold_id' in cfg.CONFIG and sid == 6666:
         GOLD_BOT = True
