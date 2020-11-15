@@ -1,1 +1,1 @@
-worker: python3 auto-voice-channels.py
+worker: python auto-voice-channels.py
