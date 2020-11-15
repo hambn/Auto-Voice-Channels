@@ -31,12 +31,12 @@ if DEV_BOT:
     print("DEV BOT")
     TOKEN = cfg.CONFIG['token_dev']
 else:
-    TOKEN = cfg.CONFIG[tokenbn]
+    TOKEN = tokenbn
 try:
     sid = int(sys.argv[1])
     if str(sid) in cfg.CONFIG["sapphires"]:
         cfg.SAPPHIRE_ID = sid
-        TOKEN = cfg.CONFIG["sapphires"][str(sid)][tokenbn]
+        #TOKEN = cfg.CONFIG["sapphires"][str(sid)][tokenbn]
         NUM_SHARDS = 1
     elif 'gold_id' in cfg.CONFIG and sid == 6666:
         GOLD_BOT = True
