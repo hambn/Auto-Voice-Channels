@@ -2,5 +2,5 @@
     "admin_id":601127931921563669,
     "client_id":777498460663709707,
     "log_timezone":"Iran/Tehran",
-
+    "token":process.env.token
 }
